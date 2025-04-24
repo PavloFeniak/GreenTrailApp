@@ -1,0 +1,154 @@
+nav.menu-classic {
+  width: 100%;
+  position: fixed;
+  top: 0;
+  z-index: 1000;
+  transition: all 0.3s ease;
+  background: transparent;
+  color: #fff;
+  /*font-family: 'Helvetica Neue', sans-serif;*/
+}
+
+nav.menu-fixed {
+  /*background: rgba(0, 0, 0, 0); !* прозоре меню *!*/
+  background: transparent;
+  /*backdrop-filter: blur(10px);*/
+}
+
+nav.menu-transparent.scroll-show {
+  background: #0b0b0b; /* темний фон після скролу */
+}
+
+.menu-classic .container {
+  display: flex;
+  justify-content: space-between;
+  margin-left: auto;
+  margin-right: auto;
+  align-items: center;
+}
+
+.menu-brand img {
+  height: 40px;
+  transition: 0.3s;
+}
+
+.menu-btn {
+  display: block;
+  font-size: 24px;
+  /*cursor: pointer;*/
+}
+
+.menu-cnt {
+  display: flex;
+  align-items: center;
+}
+
+#main-menu {
+  list-style: none;
+  display: flex;
+  margin: 0;
+  padding: 0;
+}
+
+#main-menu > li {
+  position: relative;
+}
+
+#main-menu > li > a {
+  text-decoration: none;
+  color: #ffffff;
+  font-family: 'Montserrat', sans-serif;
+  font-size: 14px;
+  font-weight: 700;
+  text-transform: uppercase;
+  height: 95px;
+  line-height: 95px;
+  padding: 0 15px 25px;
+  transition: color 0.3s ease;
+}
+
+#main-menu > li:hover > a {
+  color: #5bc0de; /* синій акцент */
+}
+
+.dropdown ul {
+  position: absolute;
+  top: 100%;
+  left: 0;
+  background-color: #111;
+  display: none;
+  flex-direction: column;
+  min-width: 180px;
+  padding: 10px 0;
+  border-radius: 4px;
+  z-index: 999;
+}
+
+.dropdown:hover ul {
+  display: flex;
+}
+
+.dropdown ul li a {
+  padding: 10px 20px;
+  color: #ea5c5c;
+  display: block;
+  text-decoration: none;
+}
+
+.dropdown ul li a:hover {
+  background-color: #222;
+}
+
+.menu-right .lan-menu {
+  margin-left: 20px;
+  list-style: none;
+  display: flex;
+  align-items: center;
+}
+
+.lan-menu img {
+  height: 20px;
+  margin-right: 5px;
+}
+
+/*!* Прелоадер *!*/
+/*#preloader {*/
+/*  position: fixed;*/
+/*  left: 0;*/
+/*  top: 0;*/
+/*  z-index: 99999;*/
+/*  width: 100%;*/
+/*  height: 100%;*/
+/*  background: #000 url('/assets/loading.gif') center center no-repeat;*/
+/*}*/
+
+/* Адаптивність */
+@media (max-width: 991px) {
+  .menu-btn {
+    display: block;
+  }
+
+  .menu-cnt {
+    display: none;
+    flex-direction: column;
+    background: #111;
+    width: 100%;
+    position: absolute;
+    top: 100%;
+    left: 0;
+  }
+
+  .menu-cnt.show {
+    display: flex;
+  }
+
+  #main-menu {
+    flex-direction: column;
+    width: 100%;
+  }
+
+  #main-menu li {
+    width: 100%;
+    text-align: center;
+  }
+}
