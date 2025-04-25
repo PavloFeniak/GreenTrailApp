@@ -10,9 +10,7 @@ nav.menu-classic {
 }
 
 nav.menu-fixed {
-  /*background: rgba(0, 0, 0, 0); !* прозоре меню *!*/
   background: transparent;
-  /*backdrop-filter: blur(10px);*/
 }
 
 nav.menu-transparent.scroll-show {
@@ -22,6 +20,8 @@ nav.menu-transparent.scroll-show {
 .menu-classic .container {
   display: flex;
   justify-content: space-between;
+  max-width: 1140px;
+  /*width: 100%;*/
   margin-left: auto;
   margin-right: auto;
   align-items: center;
@@ -29,6 +29,7 @@ nav.menu-transparent.scroll-show {
 
 .menu-brand img {
   height: 40px;
+  margin-left: -50px;
   transition: 0.3s;
 }
 
@@ -41,6 +42,7 @@ nav.menu-transparent.scroll-show {
 .menu-cnt {
   display: flex;
   align-items: center;
+  /*justify-content: flex-end;*/
 }
 
 #main-menu {
@@ -98,7 +100,10 @@ nav.menu-transparent.scroll-show {
 .dropdown ul li a:hover {
   background-color: #222;
 }
-
+.space-mm{
+  margin-right: 5px;
+  margin-bottom: 3px;
+}
 .menu-right .lan-menu {
   margin-left: 20px;
   list-style: none;
