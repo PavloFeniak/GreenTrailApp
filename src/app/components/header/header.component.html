@@ -1,60 +1,54 @@
 <body class="page-main">
 <div id="preloader"></div>
-<nav class="menu-classic menu-fixed menu-transparent light align-right" data-menu-anima="fade-in">
-  <div class="container">
-    <div class="menu-brand">
-      <a href="#">
-        <img class="" src="../../../assets/media/logo/blue-logo-white-bold-text.svg" alt="logo" />
-      </a>
-    </div>
-    <i class="menu-btn"></i>
-    <div class="menu-cnt">
-      <ul id="main-menu">
-        <li class="dropdown">
-          <a href="#">Home</a>
-        </li>
-        <li class="dropdown">
-          <a href="#">Map</a>
-        </li>
-        <li class="dropdown">
-          <a href="treks.html">Treks</a>
-          <ul *ngIf="false">
-            <li><a href="treks.html">Treks</a></li>
-            <li><a href="treks-single.html">Single trek</a></li>
-          </ul>
-        </li>
-        <li>
-          <a href="blog.html">Forum</a>
-        </li>
-        <li>
-          <a href="contacts.html">Contacts</a>
-        </li>
-        <li class="dropdown">
-          <a href="contacts.html"><img class="space-mm" src="assets/media/svg/uk-icon.svg" />EN </a>
-          <ul  *ngIf="false">
-            <li><a href="#"><img src="media/it.png" />eng</a></li>
-            <li><a href="#"><img src="media/es.png" />ukr</a></li>
-          </ul>
-        </li>
-        <li class="dropdown">
-          <a href="contacts.html">Login </a>
-          <ul  *ngIf="false">
+<div id="header" [ngClass]="this.updated? 'menu-blue': 'menu-transparent'" class="full-width">
+  <nav  class="menu-classic menu-fixed  light align-right" data-menu-anima="fade-in">
+    <div class="container">
+      <div class="menu-brand">
+        <a href="#">
+          <img class="" src="../../../assets/media/logo/blue-logo-white-bold-text.svg" alt="logo" />
+        </a>
+      </div>
+      <i class="menu-btn"></i>
+      <div class="menu-cnt">
+        <ul id="main-menu">
+          <li class="dropdown">
+            <a href="#">Home</a>
+          </li>
+          <li class="dropdown">
+            <a href="#">Map</a>
+          </li>
+          <li class="dropdown">
+            <a href="treks.html">Treks</a>
+            <ul *ngIf="false">
+              <li><a href="treks.html">Treks</a></li>
+              <li><a href="treks-single.html">Single trek</a></li>
+            </ul>
+          </li>
+          <li>
+            <a href="blog.html">Forum</a>
+          </li>
+          <li>
+            <a href="contacts.html">Contacts</a>
+          </li>
+          <li class="dropdown">
+            <a href="contacts.html"><img class="space-mm" src="assets/media/svg/uk-icon.svg" />EN </a>
+            <ul  *ngIf="false">
+              <li><a href="#"><img src="media/it.png" />eng</a></li>
+              <li><a href="#"><img src="media/es.png" />ukr</a></li>
+            </ul>
+          </li>
+          <li class="dropdown">
+            <a href="contacts.html">Login </a>
+            <ul  *ngIf="false">
 
-          </ul>
-        </li>
-      </ul>
-<!--      <div class="menu-right">-->
-<!--        <ul class="lan-menu">-->
-<!--          <li class="dropdown">-->
-<!--            <a href="contacts.html"><img src="media/en.png" />EN </a>-->
-<!--            <ul  *ngIf="false">-->
-<!--              <li><a href="#"><img src="media/it.png" />eng</a></li>-->
-<!--              <li><a href="#"><img src="media/es.png" />ukr</a></li>-->
-<!--            </ul>-->
-<!--          </li>-->
-<!--        </ul>-->
-<!--      </div>-->
+            </ul>
+          </li>
+        </ul>
+      </div>
     </div>
-  </div>
-</nav>
+  </nav>
+
+</div>
+
+
 </body>

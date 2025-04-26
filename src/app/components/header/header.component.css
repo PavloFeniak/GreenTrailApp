@@ -1,22 +1,42 @@
 nav.menu-classic {
-  width: 100%;
-  position: fixed;
-  top: 0;
-  z-index: 1000;
   transition: all 0.3s ease;
   background: transparent;
   color: #fff;
-  /*font-family: 'Helvetica Neue', sans-serif;*/
 }
 
+.full-width{
+  position: fixed;
+  top: 0;
+  z-index: 1000;
+  width: 100%;
+  height: 90px;
+}
 nav.menu-fixed {
   background: transparent;
 }
 
-nav.menu-transparent.scroll-show {
-  background: #0b0b0b; /* темний фон після скролу */
-}
 
+.menu-transparent {
+  padding-top: 20px;
+  background-color: transparent;
+  .menu-brand{
+    margin-top: -10px;
+  }
+}
+.menu-blue{
+  li{
+    height: 60px;
+  }
+  .menu-brand{
+    margin-top: -35px;
+  }
+  padding-top: 20px;
+  height: 65px;
+  background-color: #41479B;
+}
+ .menu-blue .main-menu > li > a{
+  line-height: 60px;
+}
 .menu-classic .container {
   display: flex;
   justify-content: space-between;
@@ -30,6 +50,7 @@ nav.menu-transparent.scroll-show {
 .menu-brand img {
   height: 40px;
   margin-left: -50px;
+  /*margin-top: -40px;*/
   transition: 0.3s;
 }
 
@@ -63,8 +84,7 @@ nav.menu-transparent.scroll-show {
   font-size: 14px;
   font-weight: 700;
   text-transform: uppercase;
-  height: 95px;
-  line-height: 95px;
+  /*line-height: 95px;*/
   padding: 0 15px 25px;
   transition: color 0.3s ease;
 }
@@ -156,4 +176,13 @@ nav.menu-transparent.scroll-show {
     width: 100%;
     text-align: center;
   }
+}
+#animate {
+  transition: opacity 0.5s ease;
+  opacity: 1;
+}
+
+/* Коли додається клас "fade-out" — робимо прозорість 0 */
+.fade-out {
+  opacity: 0;
 }
