@@ -21,6 +21,7 @@ export class HeaderComponent implements OnInit {
   private controller: ScrollMagic.Controller;
   public updated = false;
   private timeoutId: any;
+  public logoSrc: string = 'assets/media/logo/blue-logo-white-bold-text.svg';
 
 
   constructor() {
@@ -44,6 +45,7 @@ export class HeaderComponent implements OnInit {
         // Ставимо новий таймер
         this.timeoutId = setTimeout(() => {
           this.updated = true;
+          this.logoSrc = 'assets/media/logo/grey-logo-white-text.svg';
           gsap.to('#header', { opacity: 1, duration: 0.5 });
         }, 1000);
       })
@@ -56,7 +58,8 @@ export class HeaderComponent implements OnInit {
             clearTimeout(this.timeoutId); // скасувати таймер оновлення, якщо ще не оновили
           }
 
-          this.updated = false; // повернути дефолтний стан
+          this.updated = false;
+          this.logoSrc = 'assets/media/logo/grey-logo-white-text.svg';
           setTimeout(() => {
             gsap.to('#header', { opacity: 1, duration: 1 });
           }, 50); // легка затримка для плавності

@@ -30,9 +30,12 @@ nav.menu-fixed {
   .menu-brand{
     margin-top: -35px;
   }
+  .menu-brand img {
+    height: 55px;
+  }
   padding-top: 20px;
   height: 65px;
-  background-color: #41479B;
+  background-color: #3C5A78;
 }
  .menu-blue .main-menu > li > a{
   line-height: 60px;
