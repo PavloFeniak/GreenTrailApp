@@ -1,0 +1,24 @@
+<link href='https://fonts.googleapis.com/css?family=DM Sans' rel='stylesheet'>
+<div class="page">
+  <div class="background-blur"></div>
+  <div class="container">
+    <div class="page-header">
+      <a class="title" [routerLink]="['']">GreenTrail</a>
+      <h2>For clean mountains to explore</h2>
+    </div>
+    <div class="login-form">
+      <h3 class="error-message" id="error" style="display: none;">Wrong email or password</h3>
+      <form class="search-bar-section">
+        <input type="email" class="search-bar-1" placeholder="Email" aria-label="Search" id="username" >
+      </form>
+      <form class="search-bar-section">
+        <input type="password" class="search-bar-2" placeholder="Password" aria-label="Search" id="password">
+      </form>
+      <div><h2>Forgot password</h2></div>
+      <input type="submit" class="login-button" (click)="login()" value="Sing in"/>
+      <h2>Didn`t have any account? <a [routerLink]="['/sign-up']" class="activity-ref">Sing up here</a></h2>
+    </div>
+
+  </div>
+</div>
+

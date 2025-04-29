@@ -3,13 +3,15 @@ import {NgClass, NgIf} from '@angular/common';
 import * as ScrollMagic from 'scrollmagic';
 import { gsap } from 'gsap';
 import {Scene} from 'scrollmagic';
+import {RouterLink} from '@angular/router';
 
 
 @Component({
   selector: 'app-header',
   imports: [
     NgIf,
-    NgClass
+    NgClass,
+    RouterLink
   ],
   templateUrl: './header.component.html',
   styleUrl: './header.component.css'
