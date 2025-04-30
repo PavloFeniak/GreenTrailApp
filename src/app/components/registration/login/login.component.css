@@ -23,9 +23,16 @@
   background-repeat: no-repeat;
   background-position: center;
   background-attachment: scroll;
-  filter: blur(20px);
-  animation: blurIn 2s forwards;
+  animation: blurIn 2s forwards, zoomOutBackground 10s ease-in-out forwards;
   z-index: 0;
+}
+@keyframes zoomOutBackground {
+  0%{
+    background-size: 130%;
+  }
+  100%{
+    background-size: 110%;
+  }
 }
 @keyframes blurIn {
   0% {
@@ -208,4 +215,11 @@ h3{
   flex: none;
   order: 0;
   flex-grow: 0;
+}
+@media(max-width: 1400px){
+  .background-blur{
+    animation: none;
+    filter: blur(3px);
+    background-size: cover;
+  }
 }

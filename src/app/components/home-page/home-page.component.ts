@@ -30,7 +30,7 @@ export class HomePageComponent implements OnInit, AfterViewInit  {
     L.tileLayer(`https://api.mapy.cz/v1/maptiles/outdoor/256/{z}/{x}/{y}?apikey=${this.API_KEY}`, {
       minZoom: 0,
       maxZoom: 19,
-      attribution: '<a href="https://api.mapy.cz/copyright" target="_blank">&copy; Seznam.cz a.s. a další</a>',
+      attribution: '',
     }).addTo(this.map);
 
     const LogoControl = L.Control.extend({
@@ -42,7 +42,6 @@ export class HomePageComponent implements OnInit, AfterViewInit  {
         const link = L.DomUtil.create('a', '', container);
         link.setAttribute('href', 'http://mapy.cz/');
         link.setAttribute('target', '_blank');
-        link.innerHTML = '<img src="https://api.mapy.cz/img/api/logo.svg" alt="Mapy.cz Logo"/>';
         L.DomEvent.disableClickPropagation(link);
         return container;
       }
@@ -57,6 +56,7 @@ export class HomePageComponent implements OnInit, AfterViewInit  {
       const bleed = $el.attr('data-bleed') || '0';
       const positionY = $el.attr('data-position') || 'center';
 
+      $el.addClass('zoom-out-bg');
       // Якщо є плагін $.fn.parallax — ініціалізуємо його
       if (typeof ($el as any).parallax === 'function') {
         ($el as any).parallax({

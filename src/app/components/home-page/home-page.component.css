@@ -12,6 +12,23 @@
   display: flex;
   align-items: center;
 }
+.zoom-out-bg{
+  animation: zoomOut 4s ease-in-out forwards;
+}
+@keyframes zoomOut {
+  0% {
+    background-size: 130%;
+  }
+  100% {
+    background-size: 110%;
+  }
+}
+@media (max-width: 1400px) {
+  .zoom-out-bg {
+    animation: none;
+    background-size: cover;
+  }
+}
 ul{
   list-style: none;
 }
@@ -28,7 +45,7 @@ ul{
 }
 
 .custom-slide-in {
-  animation: customSlideIn 1s ease-out forwards;
+  animation: customSlideIn 1.5s ease-out forwards;
 }
 hr {
   border: none;
@@ -230,7 +247,7 @@ hr {
     font-size: 16px;
     transition: padding .5s;
 }
-.section-google-map > .title > p::after, p::before {
+.section-google-map > .title > p::after{
     content: "";
     display: inline-block;
     width: 20px;
@@ -241,12 +258,18 @@ hr {
 }
 .section-google-map > .title > p::before {
   margin-right: 10px;
+  content: "";
+  display: inline-block;
+  width: 20px;
+  height: 3px;
+  background-color: #3498db;
+  vertical-align: middle;
 }
 .section-color{
-  background-color: rgb(238, 243, 247);
+  background-color: #FFFFFF;
 }
 .map-container{
-  padding: 50px 50px 200px 50px;
+  padding: 50px;
 }
 .google-map{
   border-radius: 5px;
@@ -256,5 +279,177 @@ hr {
 
 
 .temp{
-  height: 800px;
+  height: fit-content;
+  padding-bottom: 50px;
+  background-color: rgb(238, 243, 247)
+}
+
+
+
+.col-lg-8 > .slider{
+  min-height: 600px;
+}
+.cnt-box.cnt-box-info {
+  width: 335px;
+  margin-right: 15px;
+  margin-left: 15px;
+  height: 470px;
+  background: #ffffff;
+  border-radius: 3px;
+  overflow: hidden;
+  box-shadow: 0 3px 23px rgba(39, 79, 117, .15);
+  transition: transform 0.3s ease;
+  cursor: pointer;
+}
+
+.cnt-box.cnt-box-info:hover {
+  transform: translateY(-5px);
+}
+
+.cnt-box.cnt-box-info .img-box  {
+  width: 100%;
+  height: 150px;
+  display: block;
+}
+
+.cnt-box.cnt-box-info .caption {
+  position: relative;
+  padding: 30px;
+  padding-top: 90px;
+  display: flex;
+  flex-direction: column;
+  justify-content: start;
+  align-items: start;
+}
+
+.cnt-box.cnt-box-info .caption h2 {
+  font-size: 22px;
+  font-weight: 1000;
+  color: #102a43;
+  font-family: 'Montserrat', sans-serif;
+  margin-bottom: 15px;
+}
+
+.cnt-box.cnt-box-info .cnt-info {
+  position: absolute;
+  width: calc(100% - 60px);
+  top: 0;
+  margin-top: -30px;
+  display: flex;
+  justify-content: space-between;
+  background-color: #102a43;
+  border-radius: 3px;
+  padding: 12px 10px;
+  color: #ffffff;
+  margin-bottom: 15px;
+}
+
+.cnt-box.cnt-box-info .cnt-info div {
+  text-align: center;
+  flex: 1;
+}
+
+.cnt-box.cnt-box-info .cnt-info span:first-child {
+  display: block;
+  font-size: 13px;
+  color: #d9e2ec;
+}
+
+.cnt-box.cnt-box-info .cnt-info span:last-child {
+  display: block;
+  font-size: 16px;
+  font-weight: 600;
+  color: #308ae4;
+  margin-top: 5px;
+}
+
+.cnt-box.cnt-box-info p {
+  font-size: 14px;
+  color: #486581;
+  margin-bottom: 10px;
+  justify-content: start;
+  align-items: start;
+}
+
+.cnt-box.cnt-box-info .bottom-info {
+  font-size: 13px;
+  color: #829ab1;
+}
+.col-lg-8{
+      -ms-flex: 0 0 66.666667%;
+      flex: 0 0 66.666667%;
+      max-width: 66.666667%;
+}
+.col-lg-4{
+      -ms-flex: 0 0 33.333333%;
+      flex: 0 0 33.333333%;
+      max-width: 33.333333%;
+}
+.col-lg-4 > .title{
+  margin-bottom: 40px;
+}
+.col-lg-4 > .title > p{
+    display: inline-block;
+    white-space: nowrap;
+    padding: 0 45px 0 0;
+    position: relative;
+    overflow: hidden;
+    font-size: 18px;
+    transition: padding .5s;
+  margin-top: 15px;
+  font-weight: 400;
+}
+.col-lg-4 > .title > p::after{
+  content: "";
+  display: inline-block;
+  width: 25px;
+  border-radius: 4px;
+  height: 5px;
+  background-color: #3498db;
+  margin-left: 10px;
+  vertical-align: middle;
+
+}
+
+.btn{
+    margin-top: 40px;
+    font-weight: 600;
+    background-color: #379cf4;
+    border-color: #379cf4;
+
+    color: #fff;
+    border-radius: 3px;
+    display: inline-block;
+    text-decoration: none;
+    border-style: solid;
+    border-width: 1px;
+    position: relative;
+    cursor: pointer;
+    outline: none;
+    text-align: center;
+    transition: all .5s;
+
+}
+.btn-xs{
+  padding: 7px 20px;
+  font-size: 13px;
+
+}
+.btn-circle {
+  border-radius: 100px;
+}
+
+
+
+
+
+
+
+
+
+.section-center{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding-top: 20px;
 }
