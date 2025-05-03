@@ -14,12 +14,6 @@
               <span class="quote-author">Folk wisdom</span>
             </p>
           </li>
-<!--          <li>-->
-<!--            <p class="quote" >-->
-<!--              When everything feels like an uphill struggle. Just wait and think of the view from the top.-->
-<!--              <span class="quote-author"></span>-->
-<!--            </p>-->
-<!--          </li>-->
         </ul>
       </div>
       <div class="col-lg-6">
@@ -90,65 +84,9 @@
     <div class="row">
       <div class="col-lg-8">
         <ul class="slider controls-right" data-options="type:carousel,nav:true,perView:2,perViewSm:1,gap:30,controls:out">
-          <li>
-            <div class="cnt-box cnt-box-info" data-href="treks-single.html">
-              <a href="treks-single.html" class="img-box"><img src="assets/media/4.png" alt="" /></a>
-              <div class="caption">
-                <div class="cnt-info">
-                <div><span>Days</span><span>3</span></div>
-                <div><span>Group size</span><span>10</span></div>
-                <div><span>Difficulty</span><span>Easy</span></div>
-              </div>
-                <h2>Lviv Excursion</h2>
-                <p>
-                  Lorem ipsum dolor sit amet consectetur adipiscing elitsed do eiusmod tempor incididunt utlabore et dolore magna aliqua.
-                </p>
-                <div class="bottom-info">
-                  Lviv
-                </div>
-              </div>
-            </div>
-          </li>
-          <li>
-            <div class="cnt-box cnt-box-info" data-href="treks-single.html">
-              <div class="extra-field"></div>
-              <a href="treks-single.html" class="img-box"><img src="assets/media/4.png" alt="" /></a>
-              <div class="caption">
-                <h2>Lviv Trekking</h2>
-                <div class="cnt-info">
-                  <div><span>Days</span><span>5</span></div>
-                  <div><span>Group size</span><span>5</span></div>
-                  <div><span>Difficulty</span><span>Medium</span></div>
-                </div>
-                <p>
-                  description.
-                </p>
-                <div class="bottom-info">
-                  Lviv
-                </div>
-              </div>
-            </div>
-          </li>
-          <li>
-<!--            <div class="cnt-box cnt-box-info" data-href="treks-single.html">-->
-<!--              <div class="extra-field"></div>-->
-<!--              <a href="treks-single.html" class="img-box"><img src="assets/media/4.png" alt="" /></a>-->
-<!--              <div class="caption">-->
-<!--                <h2>Lviv Trekking</h2>-->
-<!--                <div class="cnt-info">-->
-<!--                  <div><span>Days</span><span>1</span></div>-->
-<!--                  <div><span>Group size</span><span>15</span></div>-->
-<!--                  <div><span>Difficulty</span><span>Medium</span></div>-->
-<!--                </div>-->
-<!--                <p>-->
-<!--                  Description.-->
-<!--                </p>-->
-<!--                <div class="bottom-info">-->
-<!--                  Lviv-->
-<!--                </div>-->
-<!--              </div>-->
-<!--            </div>-->
-          </li>
+          <app-trek-preview *ngFor="let trek of trekCount">
+
+          </app-trek-preview>
         </ul>
       </div>
       <div class="col-lg-4">

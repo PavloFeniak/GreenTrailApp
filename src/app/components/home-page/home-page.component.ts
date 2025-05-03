@@ -2,18 +2,24 @@ import {AfterViewInit, Component, OnInit} from '@angular/core';
 import $ from 'jquery';
 import 'animate.css';
 import * as L from 'leaflet';
+import {NgForOf} from '@angular/common';
+import {TrekPreviewComponent} from '../trek-preview/trek-preview.component';
 
 declare var SMap: any;
 
 @Component({
   selector: 'app-home-page',
-  imports: [],
+  imports: [
+    NgForOf,
+    TrekPreviewComponent
+  ],
   templateUrl: './home-page.component.html',
   styleUrl: './home-page.component.css'
 })
 export class HomePageComponent implements OnInit, AfterViewInit  {
   private map: L.Map | undefined;
   private readonly API_KEY = 'HFo20yrq4X8ulf_mMAW3PcqNNtPA5qrudwayM8ZM4NI';
+  trekCount = Array(2);
 
 
   ngOnInit(): void {
@@ -76,4 +82,6 @@ export class HomePageComponent implements OnInit, AfterViewInit  {
       }
     });
   }
+
+  protected readonly Array = Array;
 }
