@@ -2,10 +2,11 @@ import { Component } from '@angular/core';
 import {NavigationEnd, Router, RouterOutlet} from '@angular/router';
 import {HeaderComponent} from './components/header/header.component';
 import {NgIf} from '@angular/common';
+import {TreksPageComponent} from './components/treks-page/treks-page.component';
 
 @Component({
   selector: 'app-root',
-  imports: [RouterOutlet, HeaderComponent, NgIf],
+  imports: [RouterOutlet, HeaderComponent, NgIf, TreksPageComponent],
   templateUrl: './app.component.html',
   styleUrl: './app.component.css'
 })

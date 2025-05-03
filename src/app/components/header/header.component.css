@@ -36,6 +36,8 @@ nav.menu-fixed {
   padding-top: 20px;
   height: 65px;
   background-color: #3C5A78;
+
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.4);
 }
  .menu-blue .main-menu > li > a{
   line-height: 60px;
