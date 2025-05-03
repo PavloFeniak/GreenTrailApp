@@ -1,6 +1,6 @@
 .cnt-box.cnt-box-info {
   width: 335px;
-  height: 470px;
+  height: 500px;
   background: #ffffff;
   border-radius: 3px;
   overflow: hidden;
@@ -74,12 +74,43 @@
 .cnt-box.cnt-box-info p {
   font-size: 14px;
   color: #486581;
+  font-weight: 500;
+  line-height: 30px;
   margin-bottom: 10px;
   justify-content: start;
   align-items: start;
 }
 
 .cnt-box.cnt-box-info .bottom-info {
-  font-size: 13px;
-  color: #829ab1;
+  font-size: 14px;
+  font-weight: 550;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  gap: 25px;
+  font-family: 'Montserrat', sans-serif;
+  color: #308ae4;
+}
+.user-info{
+  display: flex;
+  flex-direction: row;
+  margin-top: 20px;
+  justify-content: center;
+}
+.user-info > img{
+  width: 40px;
+  height: 40px;
+  opacity: 0.9;
+  border-radius: 50%;
+}
+.user-info > h3{
+  font-size: 15px;
+  font-weight: 600;
+  letter-spacing: 1.2px;
+  display: flex;
+  align-items: center;
+  margin: 0;
+  padding-left: 15px;
+  color: #486581;
+  font-family: 'Montserrat', sans-serif;
 }

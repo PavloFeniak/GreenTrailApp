@@ -6,7 +6,7 @@ import {TreksPageComponent} from './components/treks-page/treks-page.component';
 
 @Component({
   selector: 'app-root',
-  imports: [RouterOutlet, HeaderComponent, NgIf, TreksPageComponent],
+  imports: [RouterOutlet, HeaderComponent, NgIf],
   templateUrl: './app.component.html',
   styleUrl: './app.component.css'
 })
