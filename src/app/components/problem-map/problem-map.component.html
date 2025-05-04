@@ -1,0 +1,23 @@
+<section class="section-full-width">
+  <div class="col-lg-6 scrollable-content">
+    <h1>Problems on the tracks</h1>
+    <app-problem-trek-preview *ngFor="let trek of treks">
+
+    </app-problem-trek-preview>
+  </div>
+  <div class="col-lg-6 fixed-position">
+    <div class="map-container">
+      <div class="underlay" >
+        <div id="map" class="google-map" [class.hovered]="isHover">
+          <div class="map-controls">
+            <button id="zoom-in"><img src="assets/media/svg/plus.svg"></button>
+            <button id="zoom-out"><img src="assets/media/svg/minus.svg"/> </button>
+          </div>
+          <button class="bot-center-button"
+                  (mouseenter)="isHover = true"
+                  (mouseleave)="isHover = false">report a problem</button>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>

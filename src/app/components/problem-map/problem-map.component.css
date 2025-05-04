@@ -1,0 +1,134 @@
+
+
+
+.section-full-width{
+  padding-top: 70px;
+  display: flex;
+  flex-direction: row;
+}
+
+
+
+
+
+
+h1{
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  font-size: 25px;
+  padding-left: 20px;
+  padding-top: 20px;
+  margin-bottom: 20px;
+  letter-spacing: 0.5px;
+  font-family: 'Monserrat', sans-serif;
+  font-weight: 500;
+  animation: zoomOut 1s ease-in-out forwards;
+}
+h1::after, h1::before{
+  content: "";
+  display: inline-block;
+  width: 20px;
+  height: 3px;
+  background-color: #3498db;
+  margin-left: 10px;
+  vertical-align: middle;
+}
+h1::before{
+  margin-right: 10px;
+}
+.scrollable-content{
+  padding-left:50px;
+  padding-right:30px;
+  overflow-y: auto;
+}
+
+.fixed-position{
+  display: flex;
+  flex-direction: column;
+  position: fixed;
+  right: 0;
+  width: 50vw;
+
+}
+.map-container{
+  padding: 50px 40px 40px 0;
+  animation: zoomOut 1s ease-in-out forwards;
+}
+@keyframes zoomOut {
+  0%{
+    opacity: 0.5;
+    transform: scale(1.001);
+  }
+  100%{
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+.google-map, .underlay{
+  border-radius: 25px;
+  width: 100%;
+  height: 570px;
+  position: relative;
+}
+
+.map-controls {
+  position: absolute;
+  bottom: 40px;
+  left: 20px;
+  display: flex;
+  padding: 10px;
+  flex-direction: column;
+  overflow: hidden;
+  gap: 16px;
+  z-index: 500;
+}
+
+.map-controls button {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: white;
+  box-shadow: 0 0 5px rgba(0, 0, 0, 0.3);
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  border: none;
+  font-size: 40px;
+  /*color: #acbac8;*/
+  font-weight: 100;
+  cursor: pointer;
+  outline: none;
+  font-family: 'Montserrat', sans-serif;
+
+}
+.map-controls button:hover, .bot-center-button:hover {
+  background-color: #f0f0f0;
+}
+.underlay{
+  background: black;
+  /*background: rgba(18, 64, 175, 0.3); !* легка затемнена маска *!*/
+
+}
+.google-map.hovered {
+  opacity: 0.8;
+  transition: opacity 1s ease;
+}
+.map-controls button:active, .bot-center-button:active {
+  background-color: #ddd;
+}
+.bot-center-button{
+  position: absolute;
+  box-shadow: 0 0 5px rgba(0, 0, 0, 0.3);
+  bottom: 30px;
+  left: 38%;
+  font-size: 17px;
+  z-index: 500;
+  background-color: white;
+  border: none;
+  border-radius: 25px;
+  padding: 10px 30px;
+  font-family: 'Montserrat', sans-serif;
+
+}
