@@ -1,0 +1,45 @@
+<body class="page-main">
+<!--<div id="preloader"></div>-->
+<section class="section-image ken-burn-center light" >
+<!--  data-bleed="0" data-parallax="scroll" data-image-src="assets/media/background-low-brightness-cut.png"-->
+  <div class="container">
+
+    <div class="header">
+      <h1>Treks</h1>
+
+      <ol class="breadcrumb">
+        <li><a href="index.html">Home</a></li>
+        <li><a href="#">Pages</a></li>
+        <li><a href="#">Treks</a></li>
+      </ol>
+    </div>
+    <div class="under-header">
+      <h2>It feels good to be lost in the right direction           </h2>
+    </div>
+  </div>
+</section>
+<main>
+  <section class="section-base section-color">
+    <div class="container">
+      <div class="maso-list gap-30" data-columns="3" data-columns-lg="2" data-columns-sm="1">
+        <div class="menu-inner">
+          <div><i class="menu-btn"></i><span>Menu</span></div>
+          <ul>
+            <li class="active"><a data-filter="maso-item" href="#">All</a></li>
+            <li><a data-filter="cat-1" href="#">Hiking</a></li>
+            <li><a data-filter="cat-2" href="#">Treking</a></li>
+            <li><a data-filter="cat-3" href="#">Volunteering</a></li>
+            <li><a class="maso-order" data-sort="asc"></a></li>
+          </ul>
+        </div>
+        <div class="maso-box">
+          <app-trek-preview *ngFor="let trek of treks">
+
+          </app-trek-preview>
+        </div>
+      </div>
+      <hr class="space" />
+    </div>
+  </section>
+</main>
+</body>

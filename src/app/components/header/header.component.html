@@ -1,6 +1,6 @@
 <body class="page-main">
 <div id="preloader"></div>
-<div id="header" [ngClass]="this.updated? 'menu-blue': 'menu-transparent'" class="full-width">
+<div id="header" [ngClass]="this.updated || this.isMapPage? 'menu-blue': 'menu-transparent'" class="full-width">
   <nav  class="menu-classic menu-fixed  light align-right" data-menu-anima="fade-in">
     <div class="container">
       <div class="menu-brand">
@@ -12,10 +12,10 @@
       <div class="menu-cnt">
         <ul id="main-menu">
           <li class="dropdown">
-            <a href="#">Home</a>
+            <a [routerLink]="['']" >Home</a>
           </li>
           <li class="dropdown">
-            <a href="#">Map</a>
+            <a [routerLink]="['/problems-map']" >Map</a>
           </li>
           <li class="dropdown">
             <a [routerLink]="['/treks']">Treks</a>

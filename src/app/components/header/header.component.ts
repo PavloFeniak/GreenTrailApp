@@ -1,4 +1,4 @@
-import {Component, OnInit} from '@angular/core';
+import {AfterViewInit, Component, Input, OnChanges, OnInit, SimpleChanges} from '@angular/core';
 import {NgClass, NgIf} from '@angular/common';
 import * as ScrollMagic from 'scrollmagic';
 import { gsap } from 'gsap';
@@ -16,7 +16,8 @@ import {RouterLink} from '@angular/router';
   templateUrl: './header.component.html',
   styleUrl: './header.component.css'
 })
-export class HeaderComponent implements OnInit {
+export class HeaderComponent implements OnInit, OnChanges{
+  @Input() isMapPage = false;
 
   private controller: ScrollMagic.Controller;
   public updated = false;
@@ -27,6 +28,7 @@ export class HeaderComponent implements OnInit {
   constructor() {
     this.controller = new ScrollMagic.Controller();
   }
+
 
   ngOnInit() {
     // @ts-ignore
@@ -67,5 +69,13 @@ export class HeaderComponent implements OnInit {
       })
       .addIndicators({ name: "Header Trigger" }) // видно на екрані де тригер
       .addTo(this.controller);
+
+  }
+  ngOnChanges(changes: SimpleChanges): void {
+    if (changes['isMapPage']) {
+      if (this.isMapPage || this.updated) {
+        this.logoSrc = 'assets/media/logo/grey-logo-white-text.svg';
+      }
+    }
   }
 }
