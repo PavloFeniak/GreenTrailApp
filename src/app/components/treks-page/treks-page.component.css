@@ -81,15 +81,15 @@ body > section h2::after, body> section h2::before {
 /* Загальні стилі */
 body.page-main {
   margin: 0;
-  font-family: 'Monserrat', sans-serif;
+  font-family: 'Montserrat', sans-serif;
   color: #fff;
 }
 
 
 .section-image h1 {
   font-size: 64px;
-  font-weight: 700;
-  font-family: 'Monserrat', sans-serif;
+  font-weight: 600;
+  font-family: 'Montserrat', sans-serif;
   margin: 0;
   text-transform: uppercase;
   animation: title-animation 2s ease-in-out forwards;

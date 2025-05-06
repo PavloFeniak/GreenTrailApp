@@ -4,6 +4,7 @@ import 'animate.css';
 import * as L from 'leaflet';
 import {NgForOf} from '@angular/common';
 import {TrekPreviewComponent} from '../trek-preview/trek-preview.component';
+import {RouterLink} from '@angular/router';
 
 declare var SMap: any;
 
@@ -11,7 +12,8 @@ declare var SMap: any;
   selector: 'app-home-page',
   imports: [
     NgForOf,
-    TrekPreviewComponent
+    TrekPreviewComponent,
+    RouterLink
   ],
   templateUrl: './home-page.component.html',
   styleUrl: './home-page.component.css'

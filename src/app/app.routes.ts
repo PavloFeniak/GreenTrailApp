@@ -5,11 +5,13 @@ import {LoginComponent} from './components/registration/login/login.component';
 import {SignUpPageComponent} from './components/registration/sign-up-page/sign-up-page.component';
 import {TreksPageComponent} from './components/treks-page/treks-page.component';
 import {ProblemMapComponent} from './components/problem-map/problem-map.component';
+import {TrekInfoPageComponent} from './components/trek-info-page/trek-info-page.component';
 
 export const routes: Routes = [
   {path: '', component: HomePageComponent},
   {path: 'login', component: LoginComponent},
   {path: 'sign-up', component: SignUpPageComponent},
   {path: 'treks', component: TreksPageComponent},
-  {path: 'problems-map', component: ProblemMapComponent}
+  {path: 'problems-map', component: ProblemMapComponent},
+  {path: 'trek-info', component: TrekInfoPageComponent},
 ];
