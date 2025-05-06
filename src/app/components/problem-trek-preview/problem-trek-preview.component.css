@@ -19,7 +19,7 @@
   overflow: hidden;
 }
 .image-container img{
-  width: 250px;
+  width: 230px;
   height: 100%;
   object-fit: cover;
   border-radius: 10px;
@@ -50,17 +50,18 @@
 
 }
 h1{
-  font-size: 20px;
+  font-size: 18px;
   font-family: 'Montserrat', sans-serif;
-  font-weight: 600;
+  font-weight: 550;
+  line-height: 25px;
 }
 h2{
-  font-size: 16px;
+  font-size: 14px;
   font-family: 'Montserrat', sans-serif;
   margin: 0;
 }
 p {
-  font-size: 14px;
+  font-size: 13px;
   color: #486581;
   font-weight: 500;
   line-height: 25px;
