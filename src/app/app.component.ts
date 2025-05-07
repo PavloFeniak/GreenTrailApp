@@ -3,6 +3,7 @@ import {NavigationEnd, Router, RouterOutlet} from '@angular/router';
 import {HeaderComponent} from './components/header/header.component';
 import {NgIf} from '@angular/common';
 import {TreksPageComponent} from './components/treks-page/treks-page.component';
+import {TestComponent} from './components/test/test.component';
 
 @Component({
   selector: 'app-root',
