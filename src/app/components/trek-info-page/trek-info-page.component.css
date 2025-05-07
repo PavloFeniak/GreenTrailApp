@@ -144,10 +144,13 @@ body.page-main {
 .main-info{
   display: flex;
   flex-direction: row;
-  max-width: 1200px;
   align-items: center;
   justify-self: center;
   padding-top: 90px;
+}
+.main-info .container{
+  display: flex;
+  flex-direction: row;
 }
 .col-lg-6{
   padding-right: 80px;
@@ -192,4 +195,122 @@ body.page-main {
 .inRow .no-padding{
   padding-left: 0;
   border-left: none;
+}
+
+
+.trek-image{
+  width: 100%;
+  display: flex;
+  justify-self: center;
+  align-self: center;
+  padding-top: 50px;
+  background-color: rgb(238, 243, 247);
+}
+.main-image{
+  width: 67%;
+  height: auto;
+
+}
+.main-image img{
+  border-bottom-left-radius: 15px;
+  border-top-left-radius: 15px;
+  max-height: 400px;
+  object-fit: cover;
+}
+.side-image img{
+  border-top-right-radius: 15px;
+}
+.main-image img, .side-image img{
+  width: 100%;
+  height: 100%;
+}
+.side-image{
+  width: 100%;
+  height: 50%;
+}
+.gap-between{
+  gap: 7px;
+}
+.map-container{
+  width: 100%;
+  height: 50%;
+  /*width: 2000px;*/
+  /*height: 1000px;*/
+  overflow: hidden;
+  border-bottom-right-radius: 15px;
+}
+.google-map{
+  width: 100%;
+  height: 100%;
+  /*height: 50%;*/
+}
+.map-controls {
+  position: absolute;
+  bottom: 40px;
+  left: 8px;
+  display: flex;
+  padding: 10px;
+  flex-direction: column;
+  overflow: hidden;
+  gap: 16px;
+  z-index: 500;
+}
+
+.map-controls button {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: white;
+  box-shadow: 0 0 5px rgba(0, 0, 0, 0.3);
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  border: none;
+  font-size: 40px;
+  /*color: #acbac8;*/
+  font-weight: 100;
+  cursor: pointer;
+  outline: none;
+  font-family: 'Montserrat', sans-serif;
+
+}
+.map-controls button:hover, .bot-center-button:hover {
+  background-color: #f0f0f0;
+}
+
+.card-footer{
+  display: flex;
+  justify-self: center;
+  align-self: center;
+  gap: 15px;
+  padding: 10px 10px;
+  box-shadow: 0px 8px 12px 0px rgba(0, 0, 0, .15), 0px 0px 1px 0px rgba(0, 0, 0, .3);
+  border-radius: 40px;
+  background-color: white;
+  bottom: 20px;
+  opacity: 0;
+
+}
+.btn{
+  width: fit-content;
+  height: fit-content;
+  padding: 0 25px;
+  border: none;
+  border-radius: 40px;
+  background-color: rgba(17, 23, 14, 0.1);
+  line-height: 50px;
+  font-size: 14px;
+  font-weight: 600;
+
+}
+.btn:hover{
+  color: #776f6f;
+}
+.btn-blue{
+  background-color: #379cf4;
+  color: white;
+}
+.elevation-graph{
+  height: 30%; width: 98%; font: 12px/1.5 'Helvetica Neue', Arial, Helvetica, sans-serif;
+  margin-top: 80px;
 }
