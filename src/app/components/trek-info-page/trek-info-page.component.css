@@ -1,3 +1,7 @@
+.section-color{
+  background-color: rgb(238, 243, 247);
+}
+
 .section-image {
   position: relative;
   color: white;
@@ -45,15 +49,15 @@
     opacity: 1;
   }
 }
-.section-image h2::before{
+.under-header h2::before{
   /*left: calc(-100% - 330px);*/
   margin-left: -40px;
   transform: translateX(-100%);
 }
-.section-image h2::after{
+.under-header h2::after{
   margin-left: 40px;
 }
-body > .section-image h2::after, body> .section-image h2::before {
+.under-header h2::after, .under-header h2::before {
   content: "";
   position: absolute;
   height: 6px;
@@ -203,8 +207,8 @@ body.page-main {
   display: flex;
   justify-self: center;
   align-self: center;
-  padding-top: 50px;
-  background-color: rgb(238, 243, 247);
+  padding-top: 100px;
+
 }
 .main-image{
   width: 67%;
@@ -246,8 +250,8 @@ body.page-main {
 }
 .map-controls {
   position: absolute;
-  bottom: 40px;
-  left: 8px;
+  bottom: 10px;
+  left: 5px;
   display: flex;
   padding: 10px;
   flex-direction: column;
@@ -310,7 +314,268 @@ body.page-main {
   background-color: #379cf4;
   color: white;
 }
-.elevation-graph{
-  height: 30%; width: 98%; font: 12px/1.5 'Helvetica Neue', Arial, Helvetica, sans-serif;
-  margin-top: 80px;
+.section-elevation{
+  padding-bottom: 100px;
 }
+.elevation-graph{
+  height: 300px; width: 98%; font: 12px/1.5 'Helvetica Neue', Arial, Helvetica, sans-serif;
+
+}
+::ng-deep .elevation-control {
+  /*background-color: var(--ele-bg, rgba(70, 130, 180, 0.2));*/
+  background-color: rgb(35 40 44 / 20%);
+  height: 300px;
+}
+::ng-deep .elevation-toggle-icon{
+  opacity: 0;
+}
+
+
+.color-white h1{
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  font-size: 25px;
+  padding-left: 20px;
+  padding-top: 20px;
+  letter-spacing: 0.5px;
+  font-family: 'Montserrat', sans-serif;
+  font-weight: 500;
+  animation: zoomOut 1s ease-in-out forwards;
+  color: black;
+  margin-top: 60px;
+  margin-bottom: 20px;
+}
+ .color-white h1::after, .color-white h1::before{
+  content: "";
+  display: inline-block;
+  width: 20px;
+  height: 3px;
+  background-color: #3498db;
+  margin-left: 10px;
+  vertical-align: middle;
+}
+.color-white h1::before{
+  margin-right: 10px;
+}
+.group-info .container{
+  margin-bottom: 0;
+}
+
+
+/**/
+/*///////////////////////////////////////////////////////////////////////////////////////////////////////////////////*/
+/*/*/
+/**/
+
+.group-info .inRow{
+  height: 100%;
+}
+.group-info h2{
+  font-family: 'Montserrat', sans-serif;
+}
+.group-info h2::after, .group-info h2::before{
+  content: "";
+  display: inline-block;
+  width: 25px;
+  height: 5px;
+  background-color: #3498db;
+  margin-left: 10px;
+  vertical-align: middle;
+  border-radius: 10px;
+}
+.group-info h2::before{
+  margin-right: 10px;
+}
+.slider {
+  height: 300px;
+  overflow-y: auto;
+  scrollbar-width: none; /* Стиль для скроллбару в Firefox */
+  -ms-overflow-style: none; /* Для старих версій IE */
+}
+
+.slider::-webkit-scrollbar {
+  display: none;
+}
+
+.inCenter{
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+
+/*///////////////////////////////////////////////////////////////////////////////////////////////////////*/
+
+
+.weather-section{
+  height: 1000px;
+  padding-top: 100px;
+}
+.weather-section .container{
+  width: 1100px;
+}
+.weather-container {
+  position: relative;
+  width: 100%;
+  height: 400px;
+  overflow: hidden;
+  border-radius: 20px;
+}
+.weather-overlay{
+  position: absolute;
+  background-color: rgba(29, 12, 45, 0.65);
+  width: 100%;
+  height: 100%;
+  z-index: 5;
+}
+
+.blur-layer {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  backdrop-filter: blur(300px);
+  z-index: 4;
+}
+
+.rotate-container {
+  position: absolute;
+  width: 200%;
+  height: 200%;
+  top: -50%;
+  left: -50%;
+  animation: rotate 8s linear infinite;
+  z-index: 0;
+}
+
+.circle {
+  position: absolute;
+  border-radius: 50%;
+  opacity: 1;
+}
+.static-bot{
+  width: 800px;
+  height: 700px;
+  bottom: -400px;
+  right: -350px;
+  z-index: 3;
+}
+.static-top{
+  width: 800px;
+  height: 700px;
+  top: -500px;
+  z-index: 0;
+  left: -350px;
+}
+
+
+.blue {
+  background: #4c8bf9;
+}
+
+.weather-section .light {
+  background: #fdf1ed;
+}
+
+.mid {
+  width: 450px;
+  height: 450px;
+  background: #4c8bf9;
+  top: 90%;
+  left: 48%;
+  transform: translate(-50%, -50%);
+}
+
+.small {
+  width: 500px;
+  height: 500px;
+  background: #105493;
+  top: 40%;
+  left: 20%;
+  transform: translate(-50%, -50%);
+}
+.medium {
+  width: 500px;
+  height: 500px;
+  background: #4c8bf9;
+  top: 50%;
+  left: 70%;
+  transform: translate(-50%, -50%);
+}
+.giant{
+  width: 900px;
+  height: 900px;
+  background: #fdf1ed;
+  top: 1%;
+  left: 65%;
+  transform: translate(-50%, -50%);
+  z-index: 2;
+}
+.content {
+  position: relative;
+  z-index: 2;
+  color: #fff;
+  padding: 20px;
+}
+
+@keyframes rotate {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}
+
+
+/*////////////////////////////////////////////////////////////////////////////////////////////////////*/
+
+
+
+.section-others .container{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-bottom: 0;
+  gap: 30px;
+}
+.btn-transparent{
+  background-color: transparent;
+  border: none;
+  margin-right: 30px;
+  margin-left: 30px;
+}
+
+
+/*//////////////////////////////////////////////////////////////////////////////////////////////////*/
+
+.section-show-group{
+  position: fixed;
+  width: 100%;
+  height: 100%;
+  bottom: 0;
+  z-index: 10;
+  backdrop-filter: blur(4px);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  animation: fadeIn 1s;
+}
+.fadeOut-animation{
+  animation: fadeOut 1s;
+}
+.section-show-group .container {
+  margin: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  background-color: #fff;
+  width: 430px;
+  height: 500px;
+  padding: 70px 20px 20px;
+  border-radius: 20px;
+  overflow-y: auto;
+  scrollbar-width: none;
+  -ms-overflow-style: none;
+  box-shadow: 0px 8px 12px 0px rgba(0, 0, 0, .15), 0px 0px 1px 0px rgba(0, 0, 0, .3);
+}
+

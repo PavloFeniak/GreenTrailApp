@@ -4,16 +4,33 @@ import { RouterLink } from '@angular/router';
 import * as ScrollMagic from 'scrollmagic';
 import { gsap } from 'gsap';
 import '@raruto/leaflet-elevation'
+import {ProfileSmComponent} from '../reusable/profile-sm/profile-sm.component';
+import {NgClass, NgForOf, NgIf} from '@angular/common';
+import {ProblemTrekPreviewComponent} from '../problem-trek-preview/problem-trek-preview.component';
+import {TrekPreviewComponent} from '../trek-preview/trek-preview.component';
 
 @Component({
   selector: 'app-trek-info-page',
   imports: [
-    RouterLink
+    RouterLink,
+    ProfileSmComponent,
+    NgForOf,
+    TrekPreviewComponent,
+    NgIf,
+    NgClass
   ],
   templateUrl: './trek-info-page.component.html',
   styleUrl: './trek-info-page.component.css'
 })
 export class TrekInfoPageComponent implements AfterViewInit, OnInit {
+
+  profiles = Array(5);
+  treks = Array(3);
+
+  userSmBack: boolean = false;
+  groupShow: boolean = false;
+
+
 
   private map!: L.Map;
   private API_KEY = 'HFo20yrq4X8ulf_mMAW3PcqNNtPA5qrudwayM8ZM4NI';
@@ -47,7 +64,7 @@ export class TrekInfoPageComponent implements AfterViewInit, OnInit {
   private initMap(): void {
     this.map = L.map('map').setView([49.8729317, 14.8981184], 16);
 
-    L.tileLayer(`https://api.mapy.cz/v1/maptiles/basic/256/{z}/{x}/{y}?apikey=${this.API_KEY}`, {
+    L.tileLayer(`https://api.mapy.cz/v1/maptiles/outdoor/256/{z}/{x}/{y}?apikey=${this.API_KEY}`, {
       minZoom: 0,
       maxZoom: 19,
     }).addTo(this.map);

@@ -29,7 +29,7 @@
     <div class="col-lg-6">
       <div class="inColumn">
         <div class="inRow user-info" [style.gap]="'30px'">
-          <img class="image-container" src="assets/media/empty-user-avatar.jpg">
+          <img class="image-container" src="assets/media/uncle-bogdan.jpg">
           <div class="inColumn" [style.flex]="'1'">
             <h1>Trek initiator</h1>
             <h3>User: Pavlo Pavlovich</h3>
@@ -80,13 +80,81 @@
         </div>
       </div>
     </div>
+
+
+  </div>
+</section>
+<section class="light section-elevation">
+  <div class="container color-white">
+    <h1>Elevation gain chart</h1>
     <div id="elevation-div" class="elevation-graph"></div>
+  </div>
+</section>
+
+<section class="group-info section-image">
+  <div class="container">
+    <div class="inRow">
+      <div class="col-lg-6 slider inColumn">
+        <app-profile-sm *ngFor="let profile of profiles">
+
+        </app-profile-sm>
+      </div>
+      <div class="col-lg-6 inCenter">
+        <div class="inColumn inCenter" >
+          <h1>Group members</h1>
+          <h2>Hurry up and join. 5 travelers in team</h2>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="light weather-section">
+  <div class="container">
+    <div class="weather-container">
+      <div class="weather-overlay"></div>
+      <div class="blur-layer"></div>
+      <div class="circle light static-bot"></div>
+      <div class="circle blue static-top"></div>
+      <div class="rotate-container">
+        <div class="circle blue mid"></div>
+        <div class="circle light giant"></div>
+        <div class="circle blue medium"></div>
+        <div class="circle blue small"></div>
+      </div>
+      <div class="content">Тут твій контент</div>
+    </div>
 
   </div>
 </section>
 
+<section class="section-others section-color inRow">
+  <button class="btn-transparent">
+    <img src="assets/media/svg/left-arrow-icon.svg">
+  </button>
+  <div class="container inRow">
+    <app-trek-preview *ngFor="let trek of treks">
+
+    </app-trek-preview>
+  </div>
+  <button class="btn-transparent">
+    <img src="assets/media/svg/right-arrow-icon.svg">
+  </button>
+</section>
+<div class="section-color" [style.height]="'70px'"></div>
+
+
 <section id="footer" class="card-footer inRow fixed-bottom">
-  <button class="btn">View Group</button>
+  <button class="btn" (click)="this.groupShow = !this.groupShow">View Group</button>
   <button class="btn btn-blue">Hit the Trek</button>
+</section>
+
+<section class="section-blur section-pop-up section-show-group"
+         [ngClass]="this.groupShow? '': 'fadeOut-animation'" *ngIf="this.groupShow">
+  <div class="container">
+    <app-profile-sm *ngFor="let profile of profiles" [userSmBack]="userSmBack">
+
+    </app-profile-sm>
+  </div>
 </section>
 </body>
