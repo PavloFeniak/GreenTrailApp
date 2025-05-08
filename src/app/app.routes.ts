@@ -6,6 +6,7 @@ import {SignUpPageComponent} from './components/registration/sign-up-page/sign-u
 import {TreksPageComponent} from './components/treks-page/treks-page.component';
 import {ProblemMapComponent} from './components/problem-map/problem-map.component';
 import {TrekInfoPageComponent} from './components/trek-info-page/trek-info-page.component';
+import {ProfilePageComponent} from './components/profile-page/profile-page.component';
 
 export const routes: Routes = [
   {path: '', component: HomePageComponent},
@@ -14,4 +15,5 @@ export const routes: Routes = [
   {path: 'treks', component: TreksPageComponent},
   {path: 'problems-map', component: ProblemMapComponent},
   {path: 'trek-info', component: TrekInfoPageComponent},
+  {path: 'profile', component: ProfilePageComponent},
 ];
