@@ -63,7 +63,7 @@ export class TrekInfoPageComponent implements AfterViewInit, OnInit {
 
   private initMap(): void {
     this.map = L.map('map', {
-      zoomControl: false,
+      zoomControl: true,
     }).setView([49.8729317, 14.8981184], 16);
 
     L.tileLayer(`https://api.mapy.cz/v1/maptiles/outdoor/256/{z}/{x}/{y}?apikey=${this.API_KEY}`, {

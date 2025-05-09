@@ -33,7 +33,7 @@ export class HomePageComponent implements OnInit, AfterViewInit  {
     this.initMap();
   }
   private initMap(): void {
-    this.map = L.map('map').setView([48.6260542, 23.9013792], 16);
+    this.map = L.map('map').setView([48.6260542, 23.9013792], 12);
 
     L.tileLayer(`https://api.mapy.cz/v1/maptiles/outdoor/256/{z}/{x}/{y}?apikey=${this.API_KEY}`, {
       minZoom: 0,

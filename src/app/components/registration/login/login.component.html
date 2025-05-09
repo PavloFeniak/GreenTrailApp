@@ -15,7 +15,7 @@
         <input type="password" class="search-bar-2" placeholder="Password" aria-label="Search" id="password">
       </form>
       <div><h2>Forgot password</h2></div>
-      <input type="submit" class="login-button" (click)="login()" value="Sing in"/>
+      <input type="submit" class="login-button" [routerLink]="['/profile']" value="Sing in"/>
       <h2>Didn`t have any account? <a [routerLink]="['/sign-up']" class="activity-ref">Sing up here</a></h2>
     </div>
 

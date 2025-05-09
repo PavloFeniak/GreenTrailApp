@@ -25,7 +25,7 @@
     </div>
     <button class="btn-transparent btn-full-width inRow"><img src="assets/media/svg/route-icon.svg"> <h3>Stats</h3></button>
     <button class="btn-transparent btn-full-width inRow"><img src="assets/media/svg/list-icon.svg"> <h3>Lists</h3></button>
-    <button class="btn-transparent btn-full-width inRow"><img src="assets/media/svg/add-circle-icon.svg"> <h3>Add trek</h3></button>
+    <button class="btn-transparent btn-full-width inRow" (click)="isShowAddRouteSection = !isShowAddRouteSection"><img src="assets/media/svg/add-circle-icon.svg"> <h3>Add trek</h3></button>
 
 
   </section>
@@ -41,7 +41,7 @@
       <img src="assets/media/mountain-black.png">
       <h1>No treks yet</h1>
       <h4 style="text-align: center; max-width: 300px; margin-bottom: 40px; line-height: 25px;">Inspire friends with your trail reviews, adventure lists, and Navigator activities.</h4>
-      <button class="btn-black">create trek</button>
+      <button class="btn-black" (click)="isShowAddRouteSection = !isShowAddRouteSection">create trek</button>
     </div>
   </section>
 <!--  <section class="section-right inColumn">-->
@@ -67,4 +67,73 @@
 <!--      </div>-->
 <!--    </div>-->
 <!--  </section>-->
+
+
+
+  <div class="section-adding section-blur section-pop-up" *ngIf="isShowAddRouteSection">
+    <div class="container inColumn">
+      <h1>Create your own route</h1>
+      <form class="add-product">
+        <div class="inRow" style="width: 100%; justify-content: space-between; margin-bottom: 10px;">
+          <div class="input-container col-lg-5" >
+            <h5 class="title">Route name</h5>
+            <input type="text" class="text-input" id="title" placeholder="name the route...">
+          </div>
+          <div class="input-container col-lg-6" >
+            <h5 class="title">Closest location</h5>
+            <input type="text" class="text-input" id="city" placeholder="town or village">
+          </div>
+        </div>
+        <div class="input-container">
+          <h5 class="title">Description</h5>
+          <textarea class="text-bar text-input" id="description" placeholder="Enter detail description"></textarea>
+        </div>
+        <div class="inRow" style="justify-content: space-between; margin-top: 20px;">
+          <div class="input-container inRow" style="gap: 20px; align-items: center" >
+            <h5 class="title">Start date</h5>
+            <input
+              #myDateInput1
+              mwlFlatpickr
+              [(ngModel)]="selectedDate1"
+              name="selectedDate"
+              [altInput]="true"
+              [convertModelValue]="true"
+              [defaultHour]="9"
+              placeholder="Choose date"
+            />
+          </div>
+          <div class="input-container inRow" style="gap: 20px; align-items: center">
+            <h5 class="title">End date</h5>
+            <input class="btn-date"
+               #myDateInput2
+              mwlFlatpickr
+              [(ngModel)]="selectedDate2"
+              name="selectedDate"
+              [altInput]="true"
+              [convertModelValue]="true"
+              [defaultHour]="9"
+              placeholder="Оберіть дату"
+            />
+          </div>
+        </div>
+        <button class="btn-full-width btn-shadow inRow" (click)="toggleMap()">choose a trek route
+          <img src="assets/media/svg/down-arrow-icon.svg"> </button>
+        <div class="map-container" *ngIf="isShowMap">
+          <div id="map" class="google-map">
+            <div class="map-controls">
+              <button id="zoom-in"><img src="assets/media/svg/plus.svg"></button>
+              <button id="zoom-out"><img src="assets/media/svg/minus.svg"/> </button>
+            </div>
+            <button class="bot-center-button" (click)="isShowMap = false">Confirm route</button>
+          </div>
+        </div>
+        <div class="inRow" style="width: 100%; justify-content: space-between; margin-top: 20px">
+          <input type="file" class="file-bar col-lg-5" id="file1"/>
+          <input type="file" class="file-bar col-lg-6" id="file2"/>
+        </div>
+        <input type="submit" class="login-button" value="Add new product" (click)="isShowAddRouteSection = false"/>
+      </form>
+
+    </div>
+  </div>
 </div>
