@@ -4,6 +4,8 @@ import * as ScrollMagic from 'scrollmagic';
 import { gsap } from 'gsap';
 import {Scene} from 'scrollmagic';
 import {RouterLink} from '@angular/router';
+import {Observable} from 'rxjs';
+import {AuthService} from '../../services/auth.service';
 
 
 @Component({
@@ -23,9 +25,9 @@ export class HeaderComponent implements OnInit, OnChanges{
   public updated = false;
   private timeoutId: any;
   public logoSrc: string = 'assets/media/logo/blue-logo-white-bold-text.svg';
+  public isLoggedIn: boolean = false;
 
-
-  constructor() {
+  constructor(private authService: AuthService) {
     this.controller = new ScrollMagic.Controller();
   }
 
@@ -69,6 +71,10 @@ export class HeaderComponent implements OnInit, OnChanges{
       })
       .addIndicators({ name: "Header Trigger" }) // видно на екрані де тригер
       .addTo(this.controller);
+
+    if(this.authService.getToken() != null) {
+      this.isLoggedIn = true;
+    }
 
   }
   ngOnChanges(changes: SimpleChanges): void {

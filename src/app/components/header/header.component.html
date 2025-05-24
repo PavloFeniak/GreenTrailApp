@@ -25,24 +25,27 @@
             </ul>
           </li>
           <li>
-            <a href="blog.html">Forum</a>
+            <a [routerLink]="['/trek-chat']">Forum</a>
           </li>
           <li>
-            <a href="contacts.html">Contacts</a>
+            <a >Contacts</a>
           </li>
           <li class="dropdown">
-            <a href="contacts.html"><img class="space-mm" src="assets/media/svg/uk-icon.svg" />EN </a>
+            <a >
+<!--              <img class="space-mm" src="assets/media/svg/uk-icon.svg" />-->
+              lang </a>
             <ul  *ngIf="false">
               <li><a href="#"><img src="media/it.png" />eng</a></li>
               <li><a href="#"><img src="media/es.png" />ukr</a></li>
             </ul>
           </li>
-          <li class="dropdown">
-            <a [routerLink]="['/login']">Login </a>
-            <ul  *ngIf="false">
+          <li class="dropdown" *ngIf="isLoggedIn; else loggedOutTemplate">
+              <a [routerLink]="['/profile']">Profile </a>
 
-            </ul>
           </li>
+          <ng-template #loggedOutTemplate>
+            <a [routerLink]="['/login']">Login </a>
+          </ng-template>
         </ul>
       </div>
     </div>

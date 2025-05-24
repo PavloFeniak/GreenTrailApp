@@ -26,7 +26,7 @@ export class ProblemMapComponent implements AfterViewInit, OnInit {
   private initMap(): void {
     this.map = L.map('map',{
       zoomControl: false,
-    }).setView([48.6260542, 23.9013792], 16);
+    }).setView([48.6260542, 23.9013792], 12);
 
     L.tileLayer(`https://api.mapy.cz/v1/maptiles/outdoor/256/{z}/{x}/{y}?apikey=${this.API_KEY}`, {
       minZoom: 0,

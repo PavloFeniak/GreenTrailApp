@@ -7,6 +7,7 @@ import {TreksPageComponent} from './components/treks-page/treks-page.component';
 import {ProblemMapComponent} from './components/problem-map/problem-map.component';
 import {TrekInfoPageComponent} from './components/trek-info-page/trek-info-page.component';
 import {ProfilePageComponent} from './components/profile-page/profile-page.component';
+import {ChatPageComponent} from './components/chat-page/chat-page.component';
 
 export const routes: Routes = [
   {path: '', component: HomePageComponent},
@@ -16,4 +17,5 @@ export const routes: Routes = [
   {path: 'problems-map', component: ProblemMapComponent},
   {path: 'trek-info', component: TrekInfoPageComponent},
   {path: 'profile', component: ProfilePageComponent},
+  {path: 'trek-chat', component: ChatPageComponent},
 ];

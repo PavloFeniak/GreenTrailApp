@@ -21,7 +21,7 @@ export class AppComponent {
     this.router.events.subscribe(event => {
       if (event instanceof NavigationEnd) {
         this.isRegistrationPage = event.url.includes('/login') || event.url.includes('/sign-up');
-        this.isMapPage = event.url.includes('/problems-map') || event.url.includes('/profile');
+        this.isMapPage = event.url.includes('/problems-map') || event.url.includes('/profile') || event.url.includes('/trek-chat');
 
       }
     });
