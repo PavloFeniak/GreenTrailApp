@@ -2,12 +2,14 @@ import {AfterViewChecked, AfterViewInit, Component, ElementRef, OnInit, Renderer
 import * as L from 'leaflet';
 import {FlatpickrDirective, FlatpickrModule, provideFlatpickrDefaults} from 'angularx-flatpickr';
 import {FormsModule} from '@angular/forms';
-import {NgIf} from '@angular/common';
+import {DatePipe, NgIf} from '@angular/common';
+import {UserResponseDTO} from '../../DTO/user-response.dto';
+import {UserService} from '../../services/user.service';
 
 @Component({
   selector: 'app-profile-page',
   standalone: true,
-  imports: [FlatpickrModule, FormsModule, NgIf],
+  imports: [FlatpickrModule, FormsModule, NgIf, DatePipe],
   templateUrl: './profile-page.component.html',
   styleUrls: ['./profile-page.component.css'],
   providers: [
@@ -20,10 +22,14 @@ import {NgIf} from '@angular/common';
 })
 export class ProfilePageComponent implements OnInit, AfterViewInit, AfterViewChecked {
 
+  public user!: UserResponseDTO;
+
   selectedDate1: Date = new Date();
-  selectedDate2: Date = new Date(); // <-- ось це виправляє помилку
+  selectedDate2: Date = new Date();
   @ViewChild('myDateInput1', { static: false }) dateInput!: ElementRef;
   @ViewChild('myDateInput2', { static: false }) dateInput2!: ElementRef;
+
+
 
 
   private map: L.Map | undefined;
@@ -39,7 +45,7 @@ export class ProfilePageComponent implements OnInit, AfterViewInit, AfterViewChe
   public isShowMap: boolean = false;
   public isShowAddRouteSection: boolean = false;
 
-  constructor(private renderer: Renderer2) {
+  constructor(private renderer: Renderer2, private userService: UserService) {
   }
 
   ngAfterViewInit(): void {
@@ -210,12 +216,22 @@ export class ProfilePageComponent implements OnInit, AfterViewInit, AfterViewChe
       }
     }).addTo(this.map!);
 
-    // Центруємо мапу по маршруту
     this.map!.fitBounds(routeLayer.getBounds());
 
     return json.geometry;
   }
-  ngOnInit(): void {}
+  ngOnInit(): void {
+    this.userService.getUserByEmail().subscribe({
+      next: (user: UserResponseDTO) => {
+        console.log('User data:', user);
+        this.user = user;
+      },
+      error: (err) => {
+        console.error('Error fetching user:', err);
+      }
+    });
+
+  }
 
   protected readonly toolbar = toolbar;
 }

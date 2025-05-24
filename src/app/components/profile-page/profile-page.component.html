@@ -5,9 +5,9 @@
         <img class="profile-avatar" src="assets/media/uncle-bogdan.jpg">
         <button class="btn-transparent"><img src="assets/media/svg/pencil-icon.svg"> </button>
       </div>
-      <h1>Feniak Pavlo</h1>
-      <h2>Lviv, Lviv oblast, Ukraine</h2>
-      <p style="margin-bottom: 15px;">Member since: May 2025</p>
+      <h1>{{user?.name}}</h1>
+      <h2>{{user?.address}}</h2>
+      <p style="margin-bottom: 15px;">Member since: {{ user?.dateOfCreation | date: 'dd MMMM yyyy':'' }}</p>
       <div class="inRow" style="gap: 20px; margin: 20px 0;">
         <div class="inColumn simple-stats">
           <h3>0</h3>

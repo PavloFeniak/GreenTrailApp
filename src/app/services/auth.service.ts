@@ -2,8 +2,6 @@ import {Injectable} from '@angular/core';
 import {HttpClient} from '@angular/common/http';
 import {Observable, tap} from 'rxjs';
 import {AuthResponse} from '../DTO/auth-response.dto';
-import {API_ENDPOINTS} from '../config/api-endpoints';
-import {LoginRequestDTO} from '../DTO/login-request.dto';
 import {Router} from '@angular/router';
 
 @Injectable({
@@ -61,7 +59,7 @@ export class AuthService {
   logout(): void {
     localStorage.removeItem(this.tokenKey);
     localStorage.removeItem(this.tokenExpirationKey);
-    this.router.navigate(['/login']);
+    this.router.navigate(['']);
   }
 
   private parseJwt(token: string): any | null {
