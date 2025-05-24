@@ -1,0 +1,53 @@
+
+<body>
+<div class="chat-container">
+  <aside class="sidebar">
+    <h2 style="margin-bottom: 50px; padding-left: 20px">Trek groups</h2>
+<!--    <ul>-->
+<!--      <li class="contact online">Vincent Porter</li>-->
+<!--      <li class="contact online active">Aiden Chavez</li>-->
+<!--      <li class="contact online">Mike Thomas</li>-->
+<!--      <li class="contact offline">Christian Kelly</li>-->
+<!--      <li class="contact online">Monica Ward</li>-->
+<!--      <li class="contact offline">Dean Henry</li>-->
+<!--    </ul>-->
+    <app-chat-group *ngFor="let group of groups">
+
+    </app-chat-group>
+  </aside>
+
+  <main class="chat-main">
+<!--    <header class="chat-header">-->
+<!--      <div>-->
+<!--        <h3>Aiden Chavez</h3>-->
+<!--        <span>Last seen: 2 hours ago</span>-->
+<!--      </div>-->
+<!--    </header>-->
+    <section class="messages-section">
+      <div class="background-blur"></div>
+      <section class="messages">
+        <div class="message from-user">
+          <p>Здоров, коли вирушаємо в похід?</p>
+          <span class="time">10:10 AM</span>
+        </div>
+        <div class="message from-them">
+          <p>Та я думаю десь тоді вже як запланували</p>
+          <span class="time">10:12 AM</span>
+        </div>
+        <div class="message from-them">
+          <p>Думаю треба взяти рюбзак палатку каремат дєньгі.</p>
+          <span class="time">10:15 AM</span>
+        </div>
+      </section>
+
+    </section>
+    <footer class="chat-input">
+      <input type="text" placeholder="Enter text here...">
+      <button>Send</button>
+    </footer>
+
+
+  </main>
+</div>
+</body>
+

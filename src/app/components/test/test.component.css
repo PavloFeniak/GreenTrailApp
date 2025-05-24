@@ -1,0 +1,15 @@
+html, body, #map, #elevation-div {
+  height: 100%;
+  width: 100%;
+  padding: 0;
+  margin: 0;
+}
+
+#map {
+  height: 75%;
+}
+
+#elevation-div {
+  height: 25%;
+  font: 12px/1.5 "Helvetica Neue", Arial, Helvetica, sans-serif;
+}

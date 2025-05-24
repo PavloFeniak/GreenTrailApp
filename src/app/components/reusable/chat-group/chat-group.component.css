@@ -1,0 +1,29 @@
+.full-width{
+  padding-left: 10px;
+  width: 100%;
+  margin-top: 20px;
+  margin-bottom: 20px;
+  gap: 20px;
+  border-bottom: 0.5px solid #aeaeae;
+  padding-bottom: 10px;
+}
+img{
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+}
+.inRow{
+  display: flex;
+  flex-direction: row;
+}
+.inColumn{
+  display: flex;
+  flex-direction: column;
+}
+h1{
+  font-size: 17px;
+}
+h2{
+  font-size: 12px;
+  color: #b5b5b5;
+}
