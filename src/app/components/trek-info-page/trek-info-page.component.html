@@ -24,7 +24,8 @@
 <section class="main-info light">
   <div class="container">
     <div class="col-lg-6" [style.align-self]="'start'">
-      <p>Lorem ipsum dolor sit amet consectetur adipiscing elitsed do eiusmod tempor incididunt utlabore et dolore magna aliqua. Utenim ad minim veniam quis nostrud exercitation ullamco laboris nisi ut aliquip ex rud exercitation ullamco lconsequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fadipisis nisi ut aliquip ex ea aliquip ex rud exercitation ullamco lcon commodo consequat.</p>
+<!--      <p>Lorem ipsum dolor sit amet consectetur adipiscing elitsed do eiusmod tempor incididunt utlabore et dolore magna aliqua. Utenim ad minim veniam quis nostrud exercitation ullamco laboris nisi ut aliquip ex rud exercitation ullamco lconsequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fadipisis nisi ut aliquip ex ea aliquip ex rud exercitation ullamco lcon commodo consequat.</p>-->
+    <p>{{trek.description}}</p>
     </div>
     <div class="col-lg-6">
       <div class="inColumn">
@@ -32,7 +33,7 @@
           <img class="image-container" src="assets/media/uncle-bogdan.jpg">
           <div class="inColumn" [style.flex]="'1'">
             <h1>Trek initiator</h1>
-            <h3>User: Pavlo Pavlovich</h3>
+            <h3>User: {{user?.name}}</h3>
             <div class="inRow">
               <p>Lorem ipsum dolor sitamet consectetur adipisicing elito sed do eiusmod.</p>
             </div>
@@ -53,7 +54,7 @@
           </div>
           <div class="inColumn grid-column">
             <h2>Date</h2>
-            <p>25 May</p>
+            <p>{{trek.startDate| date: 'd MMM'}}</p>
           </div>
         </div>
       </div>
@@ -65,11 +66,11 @@
   <div class="container">
     <div class="inRow gap-between">
       <div class="main-image">
-        <img src="assets/media/petros.jpeg">
+        <img [src]=trek.firstPhoto>
       </div>
       <div class="inColumn gap-between" [style.width]="'30%'">
         <div class="side-image">
-          <img src="assets/media/petros-2.jpeg">
+          <img [src]=trek.secondPhoto>
         </div>
         <div class="map-container">
           <div id="map" class="google-map">
@@ -194,8 +195,7 @@
     <img src="assets/media/svg/left-arrow-icon.svg">
   </button>
   <div class="container inRow">
-    <app-trek-preview *ngFor="let trek of treks">
-
+    <app-trek-preview *ngFor="let trek of treks" [trek]="trek">
     </app-trek-preview>
   </div>
   <button class="btn-transparent">

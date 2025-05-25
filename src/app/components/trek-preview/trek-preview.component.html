@@ -1,22 +1,24 @@
-  <div class="cnt-box cnt-box-info" [routerLink]="['/trek-info']">
-    <a class="img-box"><img src="assets/media/4.png" alt="" /></a>
+  <div class="cnt-box cnt-box-info" [routerLink]="['/trek-info', trek.id]">
+    <a class="img-box"><img *ngIf="trek?.firstPhoto" [src]="trek.firstPhoto" alt="" /></a>
     <div class="caption">
       <div class="cnt-info">
-        <div><span>Days</span><span>3</span></div>
+        <div><span>Days</span><span>2</span></div>
         <div><span>Group size</span><span>10</span></div>
         <div><span>Difficulty</span><span>Easy</span></div>
       </div>
-      <h2>Lviv Excursion</h2>
+      <h2>{{trek.title}}</h2>
       <p>
-        Lorem ipsum dolor sit amet consectetur adipiscing elitsed do eiusmod tempor incididunt.
+<!--        Lorem ipsum dolor sit amet consectetur adipiscing elitsed do eiusmod tempor incididunt.-->
+        {{trek.description | truncate:95}}
       </p>
       <div class="bottom-info">
         <img src="assets/media/svg/map-location-pin.svg">
-        Skole, Lviv region, Ukraine
+<!--        Skole, Lviv region, Ukraine-->
+        {{trek.nearestTown}}
       </div>
       <div class="user-info">
         <img src="assets/media/empty-user-avatar.jpg">
-        <h3>User Pavlo</h3>
+        <h3>{{user.name}}</h3>
       </div>
     </div>
   </div>

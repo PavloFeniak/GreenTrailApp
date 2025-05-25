@@ -2,6 +2,9 @@ import {Component, OnInit} from '@angular/core';
 import $ from 'jquery';
 import {TrekPreviewComponent} from '../trek-preview/trek-preview.component';
 import {NgForOf} from '@angular/common';
+import {TrekService} from '../../services/trek.service';
+import {HttpClient} from '@angular/common/http';
+import {TrekRequestDto} from '../../DTO/trek-request.dto';
 
 @Component({
   selector: 'app-treks-page',
@@ -13,12 +16,24 @@ import {NgForOf} from '@angular/common';
   styleUrl: './treks-page.component.css'
 })
 export class TreksPageComponent implements OnInit {
-  treks = Array(6);
+  treks: TrekRequestDto[] = [] ;
+
+  constructor(private trekService: TrekService, private http: HttpClient) {
+  }
+
   ngOnInit(): void {
     $(document).ready(() => {
       this.initParallaxImages();
     });
+
+    this.trekService.getAllTreks().subscribe({
+      next: (data) => {this.treks = data; console.log(this.treks);},
+      error: (err) => console.error('Error loading treks:', err)
+    });
+
   }
+
+
   initParallaxImages(): void {
     $('[data-parallax="scroll"]').each(function () {
       const $el = $(this);

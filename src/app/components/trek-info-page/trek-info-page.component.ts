@@ -1,13 +1,17 @@
 import { AfterViewInit, Component, OnInit } from '@angular/core';
 import * as L from 'leaflet';
-import { RouterLink } from '@angular/router';
+import { RouterLink, ActivatedRoute } from '@angular/router';
 import * as ScrollMagic from 'scrollmagic';
 import { gsap } from 'gsap';
 import '@raruto/leaflet-elevation'
 import {ProfileSmComponent} from '../reusable/profile-sm/profile-sm.component';
-import {NgClass, NgForOf, NgIf} from '@angular/common';
+import {DatePipe, NgClass, NgForOf, NgIf} from '@angular/common';
 import {ProblemTrekPreviewComponent} from '../problem-trek-preview/problem-trek-preview.component';
 import {TrekPreviewComponent} from '../trek-preview/trek-preview.component';
+import {TrekService} from '../../services/trek.service';
+import {TrekRequestDto} from '../../DTO/trek-request.dto';
+import {UserService} from '../../services/user.service';
+import {UserResponseDTO} from '../../DTO/user-response.dto';
 
 @Component({
   selector: 'app-trek-info-page',
@@ -17,7 +21,8 @@ import {TrekPreviewComponent} from '../trek-preview/trek-preview.component';
     NgForOf,
     TrekPreviewComponent,
     NgIf,
-    NgClass
+    NgClass,
+    DatePipe
   ],
   templateUrl: './trek-info-page.component.html',
   styleUrl: './trek-info-page.component.css'
@@ -25,7 +30,9 @@ import {TrekPreviewComponent} from '../trek-preview/trek-preview.component';
 export class TrekInfoPageComponent implements AfterViewInit, OnInit {
 
   profiles = Array(5);
-  treks = Array(3);
+  treks: TrekRequestDto[] = [];
+  trek!: TrekRequestDto;
+  user!: UserResponseDTO;
 
   userSmBack: boolean = false;
   groupShow: boolean = false;
@@ -40,9 +47,10 @@ export class TrekInfoPageComponent implements AfterViewInit, OnInit {
   private controller: ScrollMagic.Controller;
   private timeoutId: any;
 
-  constructor() {
+  constructor(private trekService: TrekService, private router: ActivatedRoute, private userService: UserService) {
     this.controller = new ScrollMagic.Controller();
   }
+
 
   ngOnInit(): void {
     const scene = new ScrollMagic.Scene({
@@ -53,6 +61,30 @@ export class TrekInfoPageComponent implements AfterViewInit, OnInit {
         gsap.to('#footer', { opacity: 1, duration: 0.5 });
       }, 100);
     }).addTo(this.controller);
+    const id = this.router.snapshot.paramMap.get('id')!;
+    this.trekService.getTrekById(id).subscribe({
+      next: (data) => {this.trek = data; console.log(this.trek);
+        this.userService.getUserByEmail(this.trek.createdBy).subscribe({
+          next: (user: UserResponseDTO) => {
+            console.log('User data:', user);
+            this.user = user;
+          },
+          error: (err) => {
+            console.error('Error fetching user:', err);
+          }
+        });
+        this.coordsStart = [this.trek.startLongitude, this.trek.startLatitude];
+        this.coordsEnd = [this.trek.endLongitude, this.trek.endLatitude];
+        },
+      error: (err) => console.error('Error loading treks:', err)
+    });
+
+
+
+    this.trekService.getTreksLimited(3).subscribe({
+      next: (data) => {this.treks = data; console.log(this.treks);},
+      error: (err) => console.error('Error loading treks:', err)
+    });
   }
 
 
