@@ -9,16 +9,16 @@
     <div class="login-form">
       <h3 class="error-message" id="error" style="display: none;">The user has already been created</h3>
       <form class="search-bar-section">
-        <input type="text" class="search-bar-1" placeholder="User name" aria-label="Search" id="name">
+        <input type="text" class="search-bar-1" [(ngModel)]="name" name="name" placeholder="User name" aria-label="Search">
       </form>
       <form class="search-bar-section">
-        <input type="email" class="search-bar-2" placeholder="Email" aria-label="Search" id="email">
+        <input type="email" class="search-bar-2" placeholder="Email" aria-label="Search" [(ngModel)]="email" name="email">
       </form>
       <form class="search-bar-section">
-        <input type="text" class="search-bar-3" placeholder="Phone number" aria-label="Search" id="phoneNumber">
+        <input type="text" class="search-bar-3" placeholder="Phone number" aria-label="Search" [(ngModel)]="address" name="phoneNumber">
       </form>
       <form class="search-bar-section">
-        <input type="password" class="search-bar-4" placeholder="Password" aria-label="Search" id="password">
+        <input type="password" class="search-bar-4" placeholder="Password" aria-label="Search" [(ngModel)]="password" name="password">
       </form>
       <input type="hidden" name="_csrf" value="${_csrf.token}">
       <div><h2>Forgot password</h2></div>

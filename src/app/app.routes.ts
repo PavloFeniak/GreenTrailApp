@@ -15,7 +15,7 @@ export const routes: Routes = [
   {path: 'sign-up', component: SignUpPageComponent},
   {path: 'treks', component: TreksPageComponent},
   {path: 'problems-map', component: ProblemMapComponent},
-  {path: 'trek-info', component: TrekInfoPageComponent},
+  {path: 'trek-info/:id', component: TrekInfoPageComponent},
   {path: 'profile', component: ProfilePageComponent},
   {path: 'trek-chat', component: ChatPageComponent},
 ];

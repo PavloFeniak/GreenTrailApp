@@ -3,6 +3,7 @@ import {HttpClient} from '@angular/common/http';
 import {Observable, tap} from 'rxjs';
 import {AuthResponse} from '../DTO/auth-response.dto';
 import {Router} from '@angular/router';
+import {API_ENDPOINTS} from '../config/api-endpoints';
 
 @Injectable({
   providedIn: 'root'
@@ -14,7 +15,7 @@ export class AuthService {
   constructor(private http: HttpClient, private router: Router) {}
 
   login(email: string, password: string): Observable<AuthResponse> {
-    return this.http.post<{ jwt: string }>('http://localhost:8082/auth-service/auth/login', { email, password })
+    return this.http.post<{ jwt: string }>( API_ENDPOINTS.AUTH_URL + '/login', { email, password })
       .pipe(
         tap(response => {
           const token = response.jwt;
@@ -24,8 +25,14 @@ export class AuthService {
   }
 
 
-  registration() {
-
+  registration(email: string, password: string, phoneNumber: string, name: string, address: string): Observable<string> {
+    return this.http.post(API_ENDPOINTS.AUTH_URL + '/register', {
+      email,
+      password,
+      phoneNumber,
+      name,
+      address
+    }, { responseType: 'text' });
   }
 
 

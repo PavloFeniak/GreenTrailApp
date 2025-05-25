@@ -5,6 +5,9 @@ import {FormsModule} from '@angular/forms';
 import {DatePipe, NgIf} from '@angular/common';
 import {UserResponseDTO} from '../../DTO/user-response.dto';
 import {UserService} from '../../services/user.service';
+import {TrekResponseDto} from '../../DTO/trek-response.dto';
+import {TrekService} from '../../services/trek.service';
+import {MediaService} from '../../services/media.service';
 
 @Component({
   selector: 'app-profile-page',
@@ -23,9 +26,22 @@ import {UserService} from '../../services/user.service';
 export class ProfilePageComponent implements OnInit, AfterViewInit, AfterViewChecked {
 
   public user!: UserResponseDTO;
+  public trekRequest: TrekResponseDto = {
+    title: '',
+    description: '',
+    startDate: '',
+    endDate: '',
+    startLatitude: 0,
+    startLongitude: 0,
+    endLatitude: 0,
+    endLongitude: 0,
+    nearestTown: '',
+    firstPhoto: '',
+    secondPhoto: ''
+  };
 
-  selectedDate1: Date = new Date();
-  selectedDate2: Date = new Date();
+  // trekRequest.startDate: Date = new Date();
+  // endDate: Date = new Date();
   @ViewChild('myDateInput1', { static: false }) dateInput!: ElementRef;
   @ViewChild('myDateInput2', { static: false }) dateInput2!: ElementRef;
 
@@ -45,9 +61,58 @@ export class ProfilePageComponent implements OnInit, AfterViewInit, AfterViewChe
   public isShowMap: boolean = false;
   public isShowAddRouteSection: boolean = false;
 
-  constructor(private renderer: Renderer2, private userService: UserService) {
+  constructor(private renderer: Renderer2, private userService: UserService, private trekService: TrekService, private mediaService: MediaService) {
   }
 
+
+
+  firstPhoto: File | null = null;
+  secondPhoto: File | null = null;
+
+  onFileSelected(event: Event, index: number) {
+    const file = (event.target as HTMLInputElement).files?.[0] ?? null;
+    if (index === 1) this.firstPhoto = file;
+    else if (index === 2) this.secondPhoto = file;
+  }
+
+  async submitTrek() {
+    this.isShowAddRouteSection = false;
+    console.log('Form submitted!', this.trekRequest);
+    try {
+      if (this.firstPhoto && this.secondPhoto) {
+        const uploadedUrls = await this.uploadPhotos(this.firstPhoto, this.secondPhoto);
+        this.trekRequest.firstPhoto = uploadedUrls[0];
+        this.trekRequest.secondPhoto = uploadedUrls[1];
+        console.log(this.trekRequest.firstPhoto);
+        console.log(this.trekRequest.secondPhoto);
+      }
+
+
+      console.log(this.trekRequest);
+      this.trekService.createTrek(this.trekRequest).subscribe({
+        next: (response) => {
+          console.log('Route Successfully created', response);
+        },
+        error: (error) => {
+          console.error('Route creating error!', error);
+        }
+      });
+
+    } catch (error) {
+      console.error('Image Downloading error', error);
+    }
+  }
+  toLocalDateTimeString(date: string): string {
+    const dateToString = new Date(date);
+    return dateToString.toISOString().slice(0, 19);
+  }
+  async uploadPhotos(first: File, second: File): Promise<[string, string]> {
+    const firstUpload$ = this.mediaService.uploadToMediaService(first);
+    const secondUpload$ = this.mediaService.uploadToMediaService(second);
+
+    const [firstUrl, secondUrl] = await Promise.all([firstUpload$, secondUpload$]);
+    return [firstUrl, secondUrl];
+  }
   ngAfterViewInit(): void {
 
 
@@ -97,6 +162,15 @@ export class ProfilePageComponent implements OnInit, AfterViewInit, AfterViewChe
     if (this.isShowMap) {
       setTimeout(() => {
         this.initMap();
+        // Scroll до мапи
+        const mapContainer = document.querySelector('.map-container');
+        mapContainer?.scrollIntoView({ behavior: 'smooth', block: 'center' });
+
+        // Виправлення розміру мапи після появи
+        setTimeout(() => {
+          this.map?.invalidateSize();
+        }, 100);
+
         const buttons = document.querySelectorAll<HTMLElement>('.map-controls button, .bot-center-button');
         buttons.forEach(button => {
           L.DomEvent.disableClickPropagation(button);
@@ -221,7 +295,7 @@ export class ProfilePageComponent implements OnInit, AfterViewInit, AfterViewChe
     return json.geometry;
   }
   ngOnInit(): void {
-    this.userService.getUserByEmail().subscribe({
+    this.userService.getSelfByEmail().subscribe({
       next: (user: UserResponseDTO) => {
         console.log('User data:', user);
         this.user = user;
@@ -234,4 +308,23 @@ export class ProfilePageComponent implements OnInit, AfterViewInit, AfterViewChe
   }
 
   protected readonly toolbar = toolbar;
+
+
+  onConfirmRoute() {
+    if (this.startCoordinates && this.endCoordinates) {
+      this.trekRequest.startLatitude = this.startCoordinates.lat;
+      this.trekRequest.startLongitude = this.startCoordinates.lng;
+      this.trekRequest.endLatitude = this.endCoordinates.lat;
+      this.trekRequest.endLongitude = this.endCoordinates.lng;
+      this.trekRequest.startDate = this.toLocalDateTimeString(this.trekRequest.startDate);
+      this.trekRequest.endDate = this.toLocalDateTimeString(this.trekRequest.endDate);
+      console.log('Coords saved in trekRequest:', this.trekRequest);
+    } else {
+      console.warn('Coords not selected!');
+    }
+
+    this.isShowMap = false;
+  }
+
+
 }
